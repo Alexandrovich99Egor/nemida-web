@@ -24,3 +24,4 @@ jobs:
             git pull
             npm install
             php artisan migrate
+
