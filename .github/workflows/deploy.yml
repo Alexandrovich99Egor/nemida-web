@@ -20,8 +20,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd "$PATH"
-            echo "$PATH"
+            cd ${{ secrets.PATH }}
+            echo "${{ secrets.PATH }}"
             git pull
             npm install
             php artisan migrate
