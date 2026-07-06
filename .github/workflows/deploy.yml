@@ -23,6 +23,7 @@ jobs:
             cd ${{ secrets.PROJECT_PATH }}
             echo "${{ secrets.PROJECT_PATH }}"
             git pull
+            composer install
             npm install
             php artisan migrate
 
