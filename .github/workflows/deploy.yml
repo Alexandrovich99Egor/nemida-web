@@ -24,6 +24,5 @@ jobs:
             echo ${{PATH}}
             git pull
             npm install
-
             php artisan migrate
 
