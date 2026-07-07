@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     unzip \
     zip \
+    libpq-dev \
     libzip-dev \
     libpng-dev \
     libicu-dev \
@@ -14,6 +15,8 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     && docker-php-ext-install \
         pdo_mysql \
+        pdo_pgsql \
+        pgsql \
         mbstring \
         exif \
         pcntl \
