@@ -1,8 +1,6 @@
 services:
 
     app:
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
         build:
             context: .
             dockerfile: ./docker/php/Dockerfile
@@ -10,6 +8,8 @@ services:
             - .:/var/www/html
 
     web:
+        depends_on:
+            - app
         image: nginx:latest
         volumes:
             - .:/var/www/html
