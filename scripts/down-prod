@@ -3,6 +3,5 @@
 set -e
 docker compose \
     -f compose.yml \
-    -f compose.local.yml \
-    up -d
-
+    -f compose.prod.yml \
+    down

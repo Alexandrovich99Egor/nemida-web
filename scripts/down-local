@@ -5,11 +5,3 @@ docker compose \
     -f compose.yml \
     -f compose.local.yml \
     down
-
-docker compose exec app composer install
-
-docker compose exec app php artisan key:generate --force
-
-docker compose exec app php artisan migrate --force
-
-docker compose exec app php artisan optimize:clear
