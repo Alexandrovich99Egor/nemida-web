@@ -21,7 +21,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.PROJECT_PATH }}
-            echo "${{ secrets.PROJECT_PATH }}"
             git pull
               composer install --no-interaction --prefer-dist --optimize-autoloader
             npm install
