@@ -10,7 +10,7 @@ class HomeController extends Controller
 
     public function show()
     {
-        dd(1);
+        dd(2221);
 
         return view('home');
     }
