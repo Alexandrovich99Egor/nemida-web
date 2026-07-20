@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+docker compose exec projects-app-1 php artisan:clear
+
