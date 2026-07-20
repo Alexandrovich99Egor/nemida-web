@@ -5,9 +5,6 @@ services:
             context: .
             dockerfile: ./docker/php/Dockerfile
         container_name: php-fpm
-        depends_on:
-            postgres:
-                condition: service_healthy
         volumes:
             - .:/var/www/html
 
