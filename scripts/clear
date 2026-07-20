@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
 set -e
-docker compose exec php-fpm php artisan:clear
+CONTAINER="php-fpm"
+echo $CONTAINER
+echo docker ps
+docker compose exec $CONTAINER php artisan:clear
 
