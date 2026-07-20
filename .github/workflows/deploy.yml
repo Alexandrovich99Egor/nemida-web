@@ -26,9 +26,9 @@ jobs:
             ./scripts/up-prod
             else
             ./scripts/up-local
+            ./scripts/migrate
             fi
             git pull
               composer install --no-interaction --prefer-dist --optimize-autoloader
             npm install
-            ./scripts/migrate
 
