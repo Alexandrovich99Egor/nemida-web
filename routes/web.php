@@ -3,6 +3,6 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-
-
 Route::get('home', [HomeController::class, 'show'])->name('home');
+
+Route::view('/chat', 'chat')->name('chat');
