@@ -21,6 +21,12 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.PROJECT_PATH }}
+            APP_ENV=$(grep '^APP_ENV=' .env | cut -d '=' -f2)
+            if [ "$APP_ENV" = "dev" ]; then
+            ./scripts/up-prod
+            else
+            ./scripts/up-local
+            fi
             git pull
               composer install --no-interaction --prefer-dist --optimize-autoloader
             npm install
