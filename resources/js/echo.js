@@ -17,8 +17,16 @@ window.Echo = new Echo({
 
 
 window.Echo.channel('chat')
+    .subscribed(() => {
+        console.log('✅ subscribed');
+    })
+    .error((e) => {
+        console.error('❌ subscription error', e);
+    })
     .listen('MessageSend', (e) => {
-        console.log(e)
-        window.Livewire?.dispatch('message-received', { payload: e });
+        console.log('🎉 EVENT', e);
 
+        window.Livewire?.dispatch('message-received', {
+            payload: e,
+        });
     });
