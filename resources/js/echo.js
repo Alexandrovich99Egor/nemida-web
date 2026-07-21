@@ -20,4 +20,5 @@ window.Echo.channel('chat')
     .listen('MessageSend', (e) => {
         console.log(e)
         window.Livewire?.dispatch('message-received', { payload: e });
+
     });
