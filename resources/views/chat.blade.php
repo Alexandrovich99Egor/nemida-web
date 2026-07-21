@@ -44,6 +44,10 @@
                     <flux:text>{{ __('This page is ready for frontend chat interactions without backend logic.') }}</flux:text>
                 </flux:card>
             </section>
+
+            <section>
+                <livewire:chat.message-history />
+            </section>
         </main>
 
         <livewire:chat.new-chat-modal />

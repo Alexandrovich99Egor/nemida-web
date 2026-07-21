@@ -3,6 +3,7 @@
 namespace App\Livewire\Chat;
 
 use App\Events\MessageSend;
+use App\Models\ChatMessage;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -27,9 +28,17 @@ class NewChatModal extends Component
 
     public function createChat(): void
     {
-        event(new MessageSend([
+
+        $messages = ChatMessage::create([
+            'chat_id' => random_int(10000000, 99999999),
             'recipient' => $this->recipient,
             'message' => $this->message,
+        ]);
+
+        event(new MessageSend([
+            'chat_id' => $messages->chat_id,
+            'message' => $messages->message,
+            'recipient' => $messages->recipient,
         ]));
     }
 
