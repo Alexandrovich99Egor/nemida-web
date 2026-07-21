@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
         @include('partials.head', ['title' => __('Chats')])
+        @livewireStyles
     </head>
     <body class="min-h-screen bg-white text-zinc-950 antialiased dark:bg-zinc-900 dark:text-white">
         <main class="mx-auto flex min-h-screen w-full max-w-5xl flex-col gap-8 px-6 py-10">
@@ -45,27 +46,7 @@
             </section>
         </main>
 
-        <flux:modal name="new-chat" class="md:w-96">
-            <div class="space-y-6">
-                <div class="space-y-2">
-                    <flux:heading size="lg">{{ __('Start a new chat') }}</flux:heading>
-                    <flux:text>{{ __('Choose a teammate and draft the first message.') }}</flux:text>
-                </div>
-
-                <div class="space-y-4">
-                    <flux:input label="{{ __('Recipient') }}" placeholder="{{ __('Name or email') }}" />
-                    <flux:textarea label="{{ __('Message') }}" placeholder="{{ __('Write a short message') }}" rows="4" />
-                </div>
-
-                <div class="flex justify-end gap-2">
-                    <flux:modal.close>
-                        <flux:button variant="ghost">{{ __('Cancel') }}</flux:button>
-                    </flux:modal.close>
-
-                    <flux:button variant="primary">{{ __('Create chat') }}</flux:button>
-                </div>
-            </div>
-        </flux:modal>
+        <livewire:chat.new-chat-modal />
 
         <flux:modal name="chat-details" class="md:w-[28rem]">
             <div class="space-y-6">
@@ -94,6 +75,7 @@
             </div>
         </flux:modal>
 
+        @livewireScripts
         @fluxScripts
     </body>
 </html>

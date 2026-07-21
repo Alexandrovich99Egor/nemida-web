@@ -2,6 +2,7 @@ FROM php:8.4-fpm-bookworm
 
 WORKDIR /var/www/html
 
+
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -13,6 +14,9 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libxml2-dev \
     libonig-dev \
+    $PHPIZE_DEPS \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
     && docker-php-ext-install \
         pdo_mysql \
         pdo_pgsql \
@@ -30,6 +34,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+EXPOSE 9000
 
 RUN chown -R www-data:www-data /var/www
 
