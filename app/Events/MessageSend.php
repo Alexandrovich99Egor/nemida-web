@@ -13,12 +13,9 @@ class MessageSend implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Create a new event instance.
+     * @param  array<string>  $message
      */
-    public function __construct(public array $message)
-    {
-        //
-    }
+    public function __construct(public array $message) {}
 
     /**
      * Get the channels the event should broadcast on.
@@ -32,6 +29,9 @@ class MessageSend implements ShouldBroadcast
         ];
     }
 
+    /**
+     * @return array<string>
+     */
     public function broadcastWith(): array
     {
         return [
