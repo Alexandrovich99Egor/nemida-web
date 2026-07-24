@@ -12,11 +12,11 @@ class SendMessage extends Component
 
     public $messages;
 
-    public string $success = '';
+    public string|null $success = '';
 
     public function render()
     {
-        return view('livewire.chat.send-message',[
+        return view('livewire.chat.send-message', [
             'messages' => $this->messages,
         ]);
     }

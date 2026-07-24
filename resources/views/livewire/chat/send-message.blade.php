@@ -32,7 +32,7 @@
     >
     </flux:textarea>
     <flux:modal.trigger name="send-message">
-        <flux:button wire:click="sendMessage({{\Illuminate\Support\Facades\Auth::user()->id}})" type="submit"
+        <flux:button wire:click="sendMessage({{\Illuminate\Support\Facades\Auth::user()->id ?? null}})" type="submit"
                      class="mt-5 cursor-pointer">Высрать
         </flux:button>
     </flux:modal.trigger>
