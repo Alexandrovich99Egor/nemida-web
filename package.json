@@ -6,6 +6,9 @@
         "build": "vite build",
         "dev": "vite"
     },
+    "imports": {
+        "#filament-theme": "./vendor/filament/filament/resources/css/theme.css"
+    },
     "dependencies": {
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^3.1",
