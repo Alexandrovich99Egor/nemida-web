@@ -23,6 +23,7 @@ jobs:
             cd ${{ secrets.PROJECT_PATH }}
             git reset --hard origin/main
             git pull origin main
+            composer install --no-interaction --prefer-dist --optimize-autoloader
             APP_ENV=$(grep '^APP_ENV=' .env | cut -d '=' -f2)
             if [ "$APP_ENV" = "production" ]; then
             ./scripts/up-prod
@@ -30,7 +31,6 @@ jobs:
             ./scripts/up-local
             ./scripts/migrate
             fi
-              composer install --no-interaction --prefer-dist --optimize-autoloader
             npm install
             npm run build
 
