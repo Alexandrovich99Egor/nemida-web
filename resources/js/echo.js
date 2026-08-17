@@ -14,19 +14,3 @@ window.Echo = new Echo({
     forceTLS: (import.meta.env.VITE_REVERB_SCHEME ?? 'https') === 'https',
     enabledTransports: ['ws', 'wss'],
 });
-
-
-window.Echo.channel('chat')
-    .subscribed(() => {
-        console.log('✅ subscribed');
-    })
-    .error((e) => {
-        console.error('❌ subscription error', e);
-    })
-    .listen('MessageSend', (e) => {
-        console.log('🎉 EVENT', e);
-
-        window.Livewire?.dispatch('message-received', {
-            payload: e,
-        });
-    });
