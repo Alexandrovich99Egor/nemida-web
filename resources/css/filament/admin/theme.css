@@ -50,6 +50,11 @@ body,
     font-weight: 700;
 }
 
+.fi-logo img {
+    border-radius: 9999px;
+    object-fit: contain;
+}
+
 .fi-topbar {
     background: rgb(0 0 0 / 0.92) !important;
     border-bottom: 1px solid var(--dox-border) !important;
