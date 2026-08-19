@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -80,5 +81,33 @@ class UsersController extends Controller
             'user' => $user,
         ]);
 
+    }
+
+
+    public function createUser(Request $request)
+    {
+
+        $user = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+        ]);
+
+        $userNew = User::create([
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'password' => bcrypt('password'),
+        ]);
+
+        if (!$userNew) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User not created',
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'User created successfully',
+        ]);
     }
 }
