@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Apu\v1\UsersController;
+use Illuminate\Support\Facades\Route;
 
 
-Route::group(['prefix' => 'api/v1'], function () {
-    Route::get('users', [UsersController::class, 'index']);
+Route::prefix('v1')->group(function () {
+    Route::get('/users', [UsersController::class, 'index']);
 });
-

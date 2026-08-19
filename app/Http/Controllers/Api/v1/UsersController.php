@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Apu\v1;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
